@@ -1,12 +1,17 @@
 import java.util.Scanner
 
-
+/**
+ * Data class for stores
+ */
 data class Store(
     val item: List<String>,
     val creator: List<String>,
     val rentStatus: MutableList<String>,
     val name: String
 ){
+    /**
+     * Displays store items ( Id, item name, creator, and rent status)
+     */
     fun displayItems(){
         var i = 0
         while (i < item.size) {
@@ -16,27 +21,39 @@ data class Store(
         }
     }
 
+    /**
+     * Prints greeting
+     */
     fun greeting(){
         println("\nHello welcome to $name. Go ahead and look at our selection of items")
     }
 
-    fun isRented(trackNum: Int): Boolean{
-        return rentStatus[trackNum].equals("Rented")
+    /**
+     * Boolean method that checks if item is rented or not
+     * @param itemNum Index of Item
+     * @return Boolean if item is rented
+     */
+    fun isRented(itemNum: Int): Boolean{
+        return rentStatus[itemNum].equals("Rented")
     }
 
-    fun selection(trackNum: Int){
+    /**
+     * Makes the selection of item to be rented and prints response to user
+     * @param itemNum Index of item
+     */
+    fun selection(itemNum: Int){
 
-        if(isRented(trackNum)){
+        if(isRented(itemNum)){
             println("Sorry this book is already rented")
         }else{
-            println("You have rented "+item[trackNum] +" by " + creator[trackNum]+"\n")
-            rentStatus[trackNum] = "Rented"
+            println("You have rented "+item[itemNum] +" by " + creator[itemNum]+"\n")
+            rentStatus[itemNum] = "Rented"
 
         }
     }
 }
 
-
+// Object lists
 var songs = listOf<String>(
     "It's Five O'Clock Somewhere", "I Get Around", "Rubber Band Man", "Ventura " +
             "Highway",
@@ -69,10 +86,15 @@ var leadActors = mutableListOf<String>(
 )
 var rentedMovies = arrayListOf<String>("Available", "Rented", "Available", "Available", "Available")
 
+//Store and Scanner objects
 var input = Scanner(System.`in`)
 val musicStore = Store(songs,artists,rentedSongs, "Ridiculous Records")
 val bookStore = Store(books,authors,rentedBooks,"Barnes & Noble")
 val movieStore = Store(movies,leadActors,rentedMovies,"Blockbuster")
+
+/**
+ * Main function
+ */
 fun main(args: Array<String>) {
 do{
     println("Where would you like to go?\n1. Music Store\n2. Book Store\n3. Movie Store\n0. To quit")
@@ -89,6 +111,9 @@ do{
 println("Farewell")
 }
 
+/**
+ * Function that starts dialogue for music store
+ */
 fun musicStoreDialogue(){
 do {
     musicStore.greeting()
@@ -103,6 +128,9 @@ do {
 }while(userMusicStoreChoice != 3)
 }
 
+/**
+ * Function that starts dialogue for book store
+ */
 fun bookStoreDialogue(){
     do{
         bookStore.greeting()
@@ -118,6 +146,9 @@ fun bookStoreDialogue(){
 
 }
 
+/**
+ * Function that starts dialogue for movie store
+ */
 fun movieStoreDialogue(){
     do{
         bookStore.greeting()
@@ -133,6 +164,9 @@ fun movieStoreDialogue(){
 
 }
 
+/**
+ * Function that does the song renting process
+ */
 fun rentSongs(){
     do {
         println("Here are the song options\n")
@@ -155,6 +189,9 @@ fun rentSongs(){
     }while(sentinel.equals("yes", ignoreCase = true))
 }
 
+/**
+ * Function that does the book renting process
+ */
 fun rentBooks(){
     do{
         println("Here are the book options\n")
@@ -178,6 +215,9 @@ fun rentBooks(){
     }while(sentinel.equals("yes", ignoreCase = true))
 }
 
+/**
+ * Function that does the movie renting process
+ */
 fun rentMovies(){
     do{
         println("Here are the movie options\n")
