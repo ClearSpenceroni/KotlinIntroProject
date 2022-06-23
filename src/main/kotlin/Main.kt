@@ -35,7 +35,7 @@ do {
     when (userMusicStoreChoice) {
         1 -> musicStore.displaySongs()
         2 -> rentSongs()
-        3 -> print("Going home");
+        3 -> println("Going home");
     }
 }while(userMusicStoreChoice != 3)
 }
@@ -49,7 +49,7 @@ fun bookStoreDialogue(){
         when (userBookStoreChoice) {
             1 -> bookStore.displayBooks()
             2 -> rentBooks()
-            3 -> print("Going home");
+            3 -> println("Going home");
         }
     }while(userBookStoreChoice != 3)
 
@@ -64,7 +64,7 @@ fun movieStoreDialogue(){
         when (userMovieStoreChoice) {
             1 -> movieStore.displayMovies()
             2 -> rentMovies()
-            3 -> print("Going home");
+            3 -> println("Going home");
         }
     }while(userMovieStoreChoice != 3)
 
