@@ -1,5 +1,6 @@
 package stores
 
+//Obsolete in new branch
 class BookStore(val name: String) {
     var books = mutableListOf<String>(
       "Percy Jackson: The Lightning Thief", "Dragonlance Chronicles", "Fahrenheit 451", "Ender's Game", "Star Wars " +

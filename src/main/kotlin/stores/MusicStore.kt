@@ -1,5 +1,6 @@
 package stores
 
+//Obsolete in new branch
 class MusicStore(val name: String) {
     var songs = mutableListOf<String>(
         "It's Five O'Clock Somewhere", "I Get Around", "Rubber Band Man", "Ventura " +
